@@ -7,7 +7,7 @@
     <title>Student Result Portal</title>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2 family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
 
     <style>
@@ -260,69 +260,63 @@
             color: #4f46e5;
         }
 
-  .export-btn {
-    background: linear-gradient(135deg, #198754, #20c997);
-    color: #fff;
-    border: none;
-    border-radius: 50px;
+        .export-btn {
+            background: linear-gradient(135deg, #198754, #20c997);
+            color: #fff;
+            border: none;
+            border-radius: 50px;
+            padding: 10px 20px;
+            font-size: 15px;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 10px 25px rgba(25, 135, 84, 0.25);
+            transition: all .3s ease;
+        }
 
-    padding: 10px 20px;
-    font-size: 15px;
-    font-weight: 600;
+        .export-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(25, 135, 84, 0.4);
+        }
 
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
+        .export-btn i {
+            font-size: 1rem;
+        }
 
-    box-shadow: 0 10px 25px rgba(25, 135, 84, 0.25);
-    transition: all .3s ease;
-}
+        @media (max-width: 768px) {
+            .export-btn {
+                width: 100%;
+                justify-content: center;
+                padding: 12px;
+                font-size: 12px;
+            }
+            .pdf-btn {
+                width: 100%;
+                justify-content: center;
+                padding: 12px;
+                font-size: 12px;
+            }
+        }
+        .pdf-btn {
+            background: linear-gradient(135deg, #dc3545, #ff6b6b);
+            color: #fff;
+            border: none;
+            border-radius: 50px;
+            padding: 12px 24px;
+            font-size: 15px;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 10px 25px rgba(220,53,69,.25);
+            transition: all .3s ease;
+        }
 
-.export-btn:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 15px 30px rgba(25, 135, 84, 0.4);
-}
-
-.export-btn i {
-    font-size: 1rem;
-}
-
-@media (max-width: 768px) {
-    .export-btn {
-        width: 100%;
-        justify-content: center;
-        padding: 12px;
-        font-size: 12px;
-    }
-    .pdf-btn {
-        width: 100%;
-        justify-content: center;
-        padding: 12px;
-        font-size: 12px;
-    }
-}
-.pdf-btn {
-    background: linear-gradient(135deg, #dc3545, #ff6b6b);
-    color: #fff;
-    border: none;
-    border-radius: 50px;
-
-    padding: 12px 24px;
-    font-size: 15px;
-    font-weight: 600;
-
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-
-    box-shadow: 0 10px 25px rgba(220,53,69,.25);
-    transition: all .3s ease;
-}
-
-.pdf-btn:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 15px 30px rgba(220,53,69,.4);
-}
+        .pdf-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(220,53,69,.4);
+        }
     </style>
 </head>
 
@@ -413,35 +407,27 @@
                     </div>
                     <div class="w-100">
                         <h6 class="text-muted small mb-1 fw-medium">Class Distribution</h6>
-                        <div id="classBreakdown" class="d-flex flex-wrap gap-2 pt-1 small text-secondary">
-                            </div>
+                        <div id="classBreakdown" class="d-flex flex-wrap gap-2 pt-1 small text-secondary"></div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
     
-<div class="row mb-4">
-    <div class="col-12">
-        <div class="d-flex flex-column flex-md-row gap-3 justify-content-center justify-content-md-end">
-
-    <button class="export-btn" onclick="exportStyledExcel()">
-        <i class="bi bi-file-earmark-excel-fill"></i>
-        Export Excel
-    </button>
-
-    <button class="pdf-btn" onclick="exportPDF()">
-        <i class="bi bi-file-earmark-pdf-fill"></i>
-        Export PDF
-    </button>
-
-</div>
+    <div class="row mb-4">
+        <div class="col-12">
+            <div class="d-flex flex-column flex-md-row gap-3 justify-content-center justify-content-md-end">
+                <button class="export-btn" onclick="exportStyledExcel()">
+                    <i class="bi bi-file-earmark-excel-fill"></i> Export Excel
+                </button>
+                <button class="pdf-btn" onclick="exportPDF()">
+                    <i class="bi bi-file-earmark-pdf-fill"></i> Export PDF
+                </button>
+            </div>
+        </div>
     </div>
-</div>
 
-<div class="row g-4" id="studentContainer"></div>
-
- 
+    <div class="row g-4" id="studentContainer"></div>
 </div>
 
 <div class="modal fade" id="resultModal" tabindex="-1" aria-hidden="true">
@@ -596,10 +582,9 @@ const students = [
         result: "results/MOHAMMAD_SAMAR_KHALILHUSEN.jpeg",
         type: "image"
     }
-
 ];
 
-let filteredStudents = students;
+let filteredStudents = [...students];
 
 function renderStudents(data) {
     const container = document.getElementById("studentContainer");
@@ -725,29 +710,37 @@ function updateStats() {
 }
 
 function getInitials(fullName) {
-    const names = fullName.trim().split(' ');
+    // .filter(Boolean) removes any empty spaces caused by multiple spaces in the string
+    const names = fullName.trim().split(' ').filter(Boolean);
+    
+    if (names.length === 0) return "?";
     if (names.length === 1) {
         return names[0].charAt(0).toUpperCase();
     }
+    // Takes the first letter of the First Name and the first letter of the Surname (Last Name)
     return (names[0].charAt(0) + names[names.length - 1].charAt(0)).toUpperCase();
 }
 
 function showInitials(img, fullName) {
     const colors = ['#4f46e5', '#10b981', '#ef4444', '#f59e0b', '#8b5cf6', '#06b6d4'];
+    
+    // 1. Hide the broken image element
     img.style.display = "none";
 
+    // 2. Find the adjacent initials div container
     const initialsDiv = img.nextElementSibling;
     initialsDiv.innerHTML = getInitials(fullName);
     
+    // 3. Generate a consistent background color based on the student's name
     let charSum = 0;
     for(let i=0; i<fullName.length; i++) charSum += fullName.charCodeAt(i);
     initialsDiv.style.background = colors[charSum % colors.length];
 
+    // 4. Crucial Fix: Remove Bootstrap's 'd-none' and add layout styles so it displays as a circle
     initialsDiv.classList.remove('d-none');
+    initialsDiv.style.display = "flex"; 
 }
-
 async function exportStyledExcel() {
-
     const workbook = new ExcelJS.Workbook();
     const worksheet = workbook.addWorksheet("Student Details");
 
@@ -755,179 +748,120 @@ async function exportStyledExcel() {
 
     const title = worksheet.getCell('A1');
     title.value = 'STUDENT RESULT DETAILS';
-    title.font = {
-        bold: true,
-        size: 16
-    };
-    title.alignment = {
-        horizontal: 'center',
-        vertical: 'middle'
-    };
+    title.font = { bold: true, size: 16 };
+    title.alignment = { horizontal: 'center', vertical: 'middle' };
 
     const headers = [
-        "ID",
-        "Student Name",
-        "Grade",
-        "Class",
-        "Village",
-        "Percentile",
-        "Percentage (%)",
-        "Obtained Marks",
-        "Total Marks",
-        "Contact Number"
+        "ID", "Student Name", "Grade", "Class", "Village",
+        "Percentile", "Percentage (%)", "Obtained Marks", "Total Marks", "Contact Number"
     ];
 
-    const headerRow = worksheet.addRow([]);
+    worksheet.addRow([]);
     worksheet.addRow(headers);
 
     const row = worksheet.getRow(3);
-
     row.eachCell(cell => {
-        cell.font = {
-            bold: true,
-            color: { argb: 'FFFFFF' }
-        };
-
-        cell.fill = {
-            type: 'pattern',
-            pattern: 'solid',
-            fgColor: { argb: '1F4E78' }
-        };
-
-        cell.alignment = {
-            horizontal: 'center',
-            vertical: 'middle'
-        };
+        cell.font = { bold: true, color: { argb: 'FFFFFF' } };
+        cell.fill = { type: 'pattern', pattern: 'solid', fgColor: { argb: '1F4E78' } };
+        cell.alignment = { horizontal: 'center', vertical: 'middle' };
     });
 
-    students.forEach(student => {
+    filteredStudents.forEach(student => {
         worksheet.addRow([
-            student.id,
-            student.name,
-            student.grade,
-            student.className,
-            student.village,
-            student.percentile,
-            student.percentage,
-            student.obtainedMarks,
-            student.totalMarks,
-            student.contactNo
+            student.id, student.name, student.grade, student.className, student.village,
+            student.percentile, student.percentage, student.obtainedMarks, student.totalMarks, student.contactNo
         ]);
     });
 
-    worksheet.columns.forEach(column => {
-        column.width = 25;
-    });
+    worksheet.columns.forEach(column => { column.width = 25; });
 
     worksheet.eachRow(row => {
         row.eachCell(cell => {
-            cell.alignment = {
-                horizontal: 'center',
-                vertical: 'middle',
-                wrapText: true
-            };
-
+            cell.alignment = { horizontal: 'center', vertical: 'middle', wrapText: true };
             cell.border = {
-                top: { style: 'thin' },
-                left: { style: 'thin' },
-                bottom: { style: 'thin' },
-                right: { style: 'thin' }
+                top: { style: 'thin' }, left: { style: 'thin' },
+                bottom: { style: 'thin' }, right: { style: 'thin' }
             };
         });
     });
 
     const buffer = await workbook.xlsx.writeBuffer();
-
-    saveAs(
-        new Blob([buffer]),
-        'Students_Details.xlsx'
-    );
+    saveAs(new Blob([buffer]), 'Students_Details.xlsx');
 }
 
 function exportPDF() {
-
     const { jsPDF } = window.jspdf;
-
     const doc = new jsPDF("landscape");
 
-    // Title
     doc.setFontSize(18);
     doc.setTextColor(40, 40, 40);
     doc.text("STUDENT RESULT DETAILS", 14, 20);
 
     doc.setFontSize(10);
-     doc.text("Academic Year (2026)", 14, 28);
+    doc.text("Academic Year (2026)", 14, 28);
 
-    const tableData = students.map(student => [
-        student.id,
-        student.name,
-        student.grade,
-        student.className,
-        student.village,
-        student.percentage + "%",
-        student.obtainedMarks,
-        student.totalMarks,
-        student.contactNo
+    const tableData = filteredStudents.map(student => [
+        student.id, student.name, student.grade, student.className, student.village,
+        student.percentage + "%", student.obtainedMarks, student.totalMarks, student.contactNo
     ]);
 
     doc.autoTable({
         startY: 35,
-
-        head: [[
-            "ID",
-            "Student Name",
-            "Grade",
-            "Class",
-            "Village",
-            "Percentage",
-            "Marks",
-            "Total",
-            "Contact"
-        ]],
-
+        head: [["ID", "Student Name", "Grade", "Class", "Village", "Percentage", "Marks", "Total", "Contact"]],
         body: tableData,
-
         theme: "grid",
-
-        headStyles: {
-            fillColor: [25, 135, 84],
-            textColor: [255, 255, 255],
-            halign: "center"
-        },
-
-        bodyStyles: {
-            halign: "center",
-            valign: "middle"
-        },
-
-        styles: {
-            fontSize: 8,
-            cellPadding: 2
-        }
+        headStyles: { fillColor: [25, 135, 84], textColor: [255, 255, 255], halign: "center" },
+        bodyStyles: { halign: "center", valign: "middle" },
+        styles: { fontSize: 8, cellPadding: 2 }
     });
 
     doc.save("Students_Details.pdf");
 }
 
+// Custom Interleaved Sorting Strategy (1st 12th -> 1st 10th -> Rest 12th -> Rest 10th)
+function processInterleavedSequence(array) {
+    // 1. Separate into distinct pools filtered by category
+    const pool12 = array.filter(s => (s.className || "").includes("12th"));
+    const pool10 = array.filter(s => (s.className || "").includes("10th"));
+    const poolOthers = array.filter(s => !(s.className || "").includes("12th") && !(s.className || "").includes("10th"));
+
+    // 2. Performance priority sorting internally (High to Low percentage)
+    pool12.sort((a, b) => b.percentage - a.percentage);
+    pool10.sort((a, b) => b.percentage - a.percentage);
+    poolOthers.sort((a, b) => b.percentage - a.percentage);
+
+    const structuredResult = [];
+
+    // 3. Extract the undisputed #1 overall candidate from 12th and 10th
+    if (pool12.length > 0) structuredResult.push(pool12.shift());
+    if (pool10.length > 0) structuredResult.push(pool10.shift());
+
+    // 4. Backfill remaining structural arrays back into sequence
+    return [...structuredResult, ...pool12, ...pool10, ...poolOthers];
+}
+
 document.getElementById("searchInput").addEventListener("input", function () {
     const keyword = this.value.toLowerCase().trim();
-    filteredStudents = students.filter(student =>
+    
+    const matchedPool = students.filter(student =>
         student.name.toLowerCase().includes(keyword) || 
         student.village.toLowerCase().includes(keyword)
     );
+    
+    filteredStudents = processInterleavedSequence(matchedPool);
     renderStudents(filteredStudents);
 });
 
-// Sort students by percentage in descending order on load
-students.sort((a, b) => b.percentage - a.percentage);
-
-renderStudents(students);
+// Run sequencing parameters & startup
+filteredStudents = processInterleavedSequence(students);
+renderStudents(filteredStudents);
 updateStats();
 </script>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/exceljs/dist/exceljs.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script></html>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.8.2/jspdf.plugin.autotable.min.js"></script>
+</body>
+</html>
